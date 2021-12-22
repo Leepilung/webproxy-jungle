@@ -11,15 +11,13 @@
  *   - Fixed sprintf() aliasing issue in serve_static(), and clienterror().
  */
 
-
-
 #include "csapp.h"
 
 // 함수 Prototype 선언
 void doit(int fd);
 void read_requesthdrs(rio_t *rp);
 int parse_uri(char *uri, char *filename, char *cgiargs);
-void serve_static(int fd, char *filename, int filesize, char *method);
+void serve_static(int fd, char *filename, int filesize, char *method); 
 void get_filetype(char *filename, char *filetype);
 void serve_dynamic(int fd, char *filename, char *cgiargs, char *method);
 void clienterror(int fd, char *cause, char *errnum, char *shortmsg, char *longmsg);
@@ -115,7 +113,6 @@ void doit(int fd)
     serve_dynamic(fd, filename, cgiargs, method); // 동적 컨텐츠를 클라이언트에게 제공
   }
 }
-
 
 // HTTP 응답을 응답 라인에 적절한 상태 코드와 상태 메시지와 함께 클라이언트에 보내는 함수
 void clienterror(int fd, char *cause, char *errnum, char *shortmsg, char *longmsg)
